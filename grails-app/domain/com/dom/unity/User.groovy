@@ -1,4 +1,4 @@
-package domunity
+package com.dom.unity
 
 class User {
     String firstName

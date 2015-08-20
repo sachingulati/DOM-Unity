@@ -1,4 +1,4 @@
-import domunity.User
+import com.dom.unity.User
 import groovy.json.JsonSlurper
 
 class BootStrap {
