@@ -14,6 +14,11 @@ class UserController {
         respond User.list(params), model: [userInstanceCount: User.count()]
     }
 
+    def filter(Integer max) {
+        params.max = Math.min(max ?: 10, 100)
+        respond User.list(params), model: [userInstanceCount: User.count()]
+    }
+
     def show(User userInstance) {
         respond userInstance
     }

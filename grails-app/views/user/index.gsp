@@ -16,6 +16,11 @@
 			</ul>
 		</div>
 		<div id="list-user" class="content scaffold-list" role="main">
+            <div style="margin: 5px">
+                <g:textField name="firstName" class="du-group-user" placeholder="First Name"/>
+                <g:textField name="lastName" class="du-group-user" placeholder="Last Name"/>
+                <g:textField name="city" class="du-group-user" placeholder="City"/>
+            </div>
 			<h1><g:message code="default.list.label" args="[entityName]" /></h1>
 			<g:if test="${flash.message}">
 				<div class="message" role="status">${flash.message}</div>
@@ -23,37 +28,25 @@
 			<table>
 			<thead>
 					<tr>
-					
-						<g:sortableColumn property="age" title="${message(code: 'user.age.label', default: 'Age')}" />
-					
-						<g:sortableColumn property="city" title="${message(code: 'user.city.label', default: 'City')}" />
-					
-						<g:sortableColumn property="email" title="${message(code: 'user.email.label', default: 'Email')}" />
-					
-						<g:sortableColumn property="firstName" title="${message(code: 'user.firstName.label', default: 'First Name')}" />
-					
-						<g:sortableColumn property="lastName" title="${message(code: 'user.lastName.label', default: 'Last Name')}" />
-					
-						<g:sortableColumn property="salary" title="${message(code: 'user.salary.label', default: 'Salary')}" />
-					
+
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>City</th>
+                        <th>Email</th>
+                        <th>Age</th>
+                        <th>Salary</th>
 					</tr>
 				</thead>
 				<tbody>
 				<g:each in="${userInstanceList}" status="i" var="userInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
-					
-						<td><g:link action="show" id="${userInstance.id}">${fieldValue(bean: userInstance, field: "age")}</g:link></td>
-					
-						<td>${fieldValue(bean: userInstance, field: "city")}</td>
-					
-						<td>${fieldValue(bean: userInstance, field: "email")}</td>
-					
-						<td>${fieldValue(bean: userInstance, field: "firstName")}</td>
-					
-						<td>${fieldValue(bean: userInstance, field: "lastName")}</td>
-					
-						<td>${fieldValue(bean: userInstance, field: "salary")}</td>
-					
+
+                        <td>${userInstance.firstName}</td>
+                        <td>${userInstance.lastName}</td>
+                        <td>${userInstance.city}</td>
+                        <td>${userInstance.email}</td>
+                        <td>${userInstance.age}</td>
+                        <td>${userInstance.salary}</td>
 					</tr>
 				</g:each>
 				</tbody>
