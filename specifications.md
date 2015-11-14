@@ -1,40 +1,46 @@
 # DOM-Unity
 Global methods
    public variables:
-      1. config: this is user defined configs, this overrides the defaultConfig
-      >2. events: this is global event array, filtering is triggered on these events.
-      3. data: this is a json object, it is also sent with every request, this is overrided by element values on page and impData
-      -4. getUserData: this is also json object,
+      1. config
+         Type: json object or function which returns json object
+         Description: this is user defined configs, this overrides the defaultConfig
+      2. data
+         Type: json object or function which returns json object
+         Description: this is additional data, it is also sent with every request, this is overrided by element values on page and importantData
+      3. importantData
+         Type: json object or function which returns json object
+         Description: this is additional data, it is also sent with every request, this overrides element values on page
 
    private variables:
-      1. namespace: this is the namespace for the plugin, plugin can be accessed with this name,
-         it is also used in prefix. This is private because this is initialized with the plugin initialization.
-      2. apiInstance: to use plugin object inside plugin
-      3. requestNum: this stores the request number, so that old request doesn't override new request, this needs planning
-      4. defaultConfig: this stores all the default configs of the application, user can override this with config
-      >5. allEvents:
-      6.
-
+      1. namespace
+         Type: String
+         Description: this is the namespace for the plugin, plugin can be accessed with this name, it is also used in prefix
+      2. apiInstance:
+         Type: object
+         Description: this is plugin's instance variable for internal use
+      3. requestNum:
+         Type: object
+         Description: this is a map which stores groupName as key and request number as its value, used for rendering latest requests only
+      4. defaultConfig:
+         Type: json object or function which returns json object
+         Description: this stores all the default configs of the application, user can override this with config
 
    public methods:
-      -1. getGroupNames [getGroups]:
-            with arguments: jquery selector for a dom element is provided, and it returns names of all groups that element belongs to
-            without arguments: returns names of all groups in page.
-      -2. getGroups: same as getGroupNames, but instead of names it returns group objects
-      -3. getElements [elements]:
-            with arguments: takes group name as argument and return dom elements associated with it
-            without arguments: returns all elements associated with any group on page.
-      -4: getUserData: it is called on every request and the data received from it, is sent with every request. it overrides data object and element values on page
-      >5: addEvent(selector, event): adds event to an element
-      >6: getEvents(selector): get events on an element
-      >7: updateEvents: updates events on an element
-      8:
+      1. getGroupNames(element):
+            Description:
+               with arguments: jquery selector for a dom element is provided, and it returns names of all groups that element belongs to
+               without arguments: returns names of all groups in page.
+      2. getGroups(element):
+            Description: same as getGroupNames, but instead of names it returns group objects
+      3. getElements(groupName):
+            Description:
+               with arguments: takes group name as argument and return dom elements associated with that group
+               without arguments: returns all elements associated with any group on page.
 
    private methods:
-      -1. getUniqueGroupNames [getUniqueGroups]: returns names of all groups on page
-      2. getClassInfo: this extract the information from classes, it takes element and prefix as argument
-      3. initDefaultEvents: this initialize default events
-      4. init: initialization
+      1. getClassInfo(element, prefix):
+            Description: this extract the information from class attribute of element
+      2. init: initialization of plugin
 
 Group Methods:
    public variables:
@@ -45,3 +51,5 @@ Group Methods:
       1.
    private methods:
       1.
+
+
