@@ -34,32 +34,30 @@ Events are associated with name: `[event name].[namespace]`. Example: click.du
 > All properties specified here are modifiable by user. 
 > Group properties if specified in group objects, override Global properties
 
-``` javascript
-Global Properties:
-```
+###### Global Properties:
 
 | Property Name | Type | Overview |
 | ------------- | ---- | -------- |
-| config | json object or function (returning json object) | User Defined configs, this overrides default configs |
-| data | json object or function (returning json object) | this is additional data which is also sent with every request, this is overrided by element values on page and importantData |
+| config | json object or function  | User Defined configs, this overrides default configs |
+| data | json object or function  | this is additional data which is also sent with every request, this is overrided by element values on page and importantData |
 | getElements | function | returns all elements associated with any group on page |
 | getElements(groupName) | function | returns all elements associated with group specified |
 | getGroupNames | function | returns all group names on page |
 | getGroupNames(element) | function | returns group names associated with element |
 | getGroups | function | returns all group objects on page |
 | getGroups(element) | function | returns all group objects associated with element. |
-| importantData | json object or function (returning json object) | Same as data, this is additional data which is also sent with every request, this overrides element values on page and data |
+| importantData | json object or function  | Same as data, this is additional data which is also sent with every request, this overrides element values on page and data |
 ---
 
 
-#### Group Properties:
+###### Group Properties:
 
 | Property Name | Type | Overrides | Overview |
 | ------------- | ---- | --------- | -------- |
-| config | json object or function (returning json object) | config | User Defined configs |
-| data | json object or function (returning json object) | data | this is additional data which is also sent with every request, this is overrided by element values on page and importantData |
+| config | json object or function  | config | User Defined configs |
+| data | json object or function  | data | this is additional data which is also sent with every request, this is overrided by element values on page and importantData |
 | getElements | function | --- | get all elements associated with group |
-| importantData | json object or function (returning json object) | importantData | Same as data, this is additional data which is also sent with every request, this overrides element values on page and data |
+| importantData | json object or function  | importantData | Same as data, this is additional data which is also sent with every request, this overrides element values on page and data |
 
 ---
 
@@ -67,7 +65,7 @@ Global Properties:
 
 > These are private properties of plugin which are not accessible to user. But these can be modified by modifying plugin code (not recommended).
 
-##### Global Properties:
+###### Global Properties:
 
 | Property Name | Type | Overview |
 | ------------- | ---- | -------- |
