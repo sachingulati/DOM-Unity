@@ -33,52 +33,54 @@ Events are associated with name: `[event name].[namespace]`. Example: click.du
 ### Plugin Properties summary: 
 > All properties specified here are modifiable by user. 
 > Group properties if specified in group objects, override Global properties
+
 ``` javascript
 Global Properties:
 ```
-Property Name | Type | Overview
-- | - | - 
-config | json object or function (returning json object) | User Defined configs, this overrides default configs
-data | json object or function (returning json object) | this is additional data which is also sent with every request, this is overrided by element values on page and importantData
-getElements | function | returns all elements associated with any group on page
-getElements(groupName) | function | returns all elements associated with group specified 
-getGroupNames | function | returns all group names on page
-getGroupNames(element) | function | returns group names associated with element
-getGroups | function | returns all group objects on page
-getGroups(element) | function | returns all group objects associated with element.
-importantData | json object or function (returning json object) | Same as data, this is additional data which is also sent with every request, this overrides element values on page and data
+
+| Property Name | Type | Overview |
+| ------------- | ---- | -------- |
+| config | json object or function (returning json object) | User Defined configs, this overrides default configs |
+| data | json object or function (returning json object) | this is additional data which is also sent with every request, this is overrided by element values on page and importantData |
+| getElements | function | returns all elements associated with any group on page |
+| getElements(groupName) | function | returns all elements associated with group specified |
+| getGroupNames | function | returns all group names on page |
+| getGroupNames(element) | function | returns group names associated with element |
+| getGroups | function | returns all group objects on page |
+| getGroups(element) | function | returns all group objects associated with element. |
+| importantData | json object or function (returning json object) | Same as data, this is additional data which is also sent with every request, this overrides element values on page and data |
 ---
 
 
-``` javascript
-Group Properties:
-```
-Property Name | Type | Overrides | Overview
-- | - | - | -
-config | json object or function (returning json object) | config | User Defined configs
-data | json object or function (returning json object) | data | this is additional data which is also sent with every request, this is overrided by element values on page and importantData
-getElements | function | --- | get all elements associated with group
-importantData | json object or function (returning json object) | importantData | Same as data, this is additional data which is also sent with every request, this overrides element values on page and data
+#### Group Properties:
+
+| Property Name | Type | Overrides | Overview |
+| ------------- | ---- | --------- | -------- |
+| config | json object or function (returning json object) | config | User Defined configs |
+| data | json object or function (returning json object) | data | this is additional data which is also sent with every request, this is overrided by element values on page and importantData |
+| getElements | function | --- | get all elements associated with group |
+| importantData | json object or function (returning json object) | importantData | Same as data, this is additional data which is also sent with every request, this overrides element values on page and data |
+
 ---
 
-### Private properties summary: 
+### Private properties summary:
+
 > These are private properties of plugin which are not accessible to user. But these can be modified by modifying plugin code (not recommended).
 
-``` javascript
-Global Properties:
-```
-Property Name | Type | Overview
-- | - | - 
-defaultConfig | jsonObject or function | default configs of plugin
-init | function | initializes the plugin on $(document).ready()
-getClassInfo(element, prefix) | function | extracts the information from class attribute of element and returns array of String. i.e. group name, event name, etc.
-namespace | String | namespace used in application, default value is `du`
+##### Global Properties:
+
+| Property Name | Type | Overview |
+| ------------- | ---- | -------- |
+| defaultConfig | jsonObject or function | default configs of plugin |
+| init | function | initializes the plugin on $(document).ready() |
+| getClassInfo(element, prefix) | function | extracts the information from class attribute of element and returns array of String. i.e. group name, event name, etc. |
+| namespace | String | namespace used in application, default value is `du` |
 
 ---
 
-``` javascript
-Group Properties:
-```
-Property Name | Type | Overview
-- | - | -
+###### Group Properties:
+
+| Property Name | Type | Overview |
+| ------------- | ---- | -------- |
+
 ---
