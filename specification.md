@@ -1,22 +1,6 @@
 # DOM-Unity
-## **>> Under Development <<**
 
 DOM-Unity is a jQuery plugin. The basic idea revolves around unifying the DOM elements on page.
-
-##### Feautures provided by this plugin:
-  - Searching/Filtering lists
-  - Pagination and Hybrid Pagination
-  - Datasource: Ajax or/and Javascript Arrays
-  - Duplicate request prevention
-  - Latest request rendering
-  - Elements grouping
-  - Fully Customizable
-  - Rich plugin specification for geeks
-
-> This plugin doesn't provide any styling nor it affects any styling on page. 
-
-### Version
-0.0.1
 
 ### Basic Terminologies: 
 1. **Namespace**: Default namespace of this application is `du`. This is modifiable.
@@ -61,4 +45,26 @@ Events are associated with name: `[event name].[namespace]`. Example: click.du
 
 ---
 
-For more information read [specification](specification.md)
+### Private properties summary:
+
+> These are private properties of plugin which are not accessible to user. But these can be modified by modifying plugin code (not recommended).
+
+###### Global Properties:
+
+| Property Name | Type | Overview |
+| ------------- | ---- | -------- |
+| apiInstance | object | plugin instance for internal use |
+| defaultConfig | object/function | default configs of plugin |
+| init | function | initializes the plugin on $(document).ready() |
+| getClassInfo(element, prefix) | function | extracts the information from class attribute of element and returns array of String. i.e. group name, event name, etc. |
+| namespace | String | namespace used in application, default value is `du` |
+| requestNum | object | this is a map which stores groupName as key and request number as its value, used for rendering latest requests only.
+
+---
+
+###### Group Properties:
+
+| Property Name | Type | Overview |
+| ------------- | ---- | -------- |
+
+---
