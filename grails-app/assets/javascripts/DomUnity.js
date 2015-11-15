@@ -1,13 +1,24 @@
 var domUnity = new function () {
     var namespace = "du";
     var apiInstance = this;
-    var requestNum = 0;
+    // TODO: make requestNum private
+    this.requestNum = {};
     var defaultConfig = {
-        preventDuplicateSubmission: true,
+        duplicateSubmission: false,
         renderLatestOnly: true
     };
-
     this.config = {};
+    this.getConfig = function (groupName) {
+        if (groupName) {
+            // TODO: implement this
+            return {}
+        }
+        return merge([defaultConfig, this.config]);
+    };
+    this.prefix = {
+        group: 'group',
+        event: 'event'
+    };
     this.events = ['change', 'keyup'];
     var allEvents = $.merge([], this.events);
     this.data = {};
@@ -24,30 +35,6 @@ var domUnity = new function () {
             })
         });
         return groupNames;
-    };
-    var getClassInfo = function (element, prefix) {
-        var $element = $(element);
-        if (!$element || !$element.length) {
-            return []
-        }
-        var classes = $element.attr("class");
-        if (!classes) {
-            return []
-        }
-        classes = classes.split(/\s+/);
-        if (!classes.length) {
-            return []
-        }
-        classes = classes.filter(function (value) {
-            return value.match("^" + namespace + "-" + prefix + "-") ? true : false;
-        });
-        if (!classes || !classes.length) {
-            return []
-        }
-        $.each(classes, function (i, v) {
-            classes[i] = v.replace(namespace + "-" + prefix + "-", '');
-        });
-        return classes;
     };
     this.getGroups = function (element) {
         if (typeof element == 'undefined') {
@@ -88,7 +75,7 @@ var domUnity = new function () {
         });
     };
     this.getEvents = function (selector) {
-        if(typeof selector == 'undefined'){
+        if (typeof selector == 'undefined') {
             return allEvents;
         }
         var $element = $(selector);
@@ -125,6 +112,51 @@ var domUnity = new function () {
     var init = function () {
         initDefaultEvents();
 
+    };
+
+    // Utility functions:
+
+    var merge = function (objArray) {
+        var mergedObject = {};
+        a.forEach(function (obj) {
+            $.extend(mergedObject, getJsonObject(obj))
+        });
+        return mergedObject;
+    };
+
+    var getJsonObject = function (obj) {
+        if (typeof obj == 'object') {
+            return obj;
+        } else if (typeof obj == 'function') {
+            obj = obj();
+            if (typeof obj == 'object') {
+                return obj;
+            }
+        }
+    };
+    var getClassInfo = function (element, prefix) {
+        var $element = $(element);
+        if (!$element || !$element.length) {
+            return []
+        }
+        var classes = $element.attr("class");
+        if (!classes) {
+            return []
+        }
+        classes = classes.split(/\s+/);
+        if (!classes.length) {
+            return []
+        }
+        classes = classes.filter(function (value) {
+            return value.match("^" + namespace + "-" + prefix + "-") ? true : false;
+        });
+        if (!classes || !classes.length) {
+            return []
+        }
+        $.each(classes, function (i, v) {
+            classes[i] = v.replace(namespace + "-" + prefix + "-", '');
+        });
+        return classes;
     };
     return this;
 };

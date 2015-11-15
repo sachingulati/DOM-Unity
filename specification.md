@@ -24,6 +24,8 @@ Events are associated with name: `[event name].[namespace]`. Example: click.du
 | ------------- | ---- | -------- |
 | config | object/function  | User Defined configs, this overrides default configs |
 | data | object/function  | this is additional data which is also sent with every request, this is overrided by element values on page and importantData |
+| getConfig | function | returns all configurations including default config |
+| getConfig(groupName) | function | returns all configurations including default config of group |
 | getElements | function | returns all elements associated with any group on page |
 | getElements(groupName) | function | returns all elements associated with group specified |
 | getGroupNames | function | returns all group names on page |
@@ -57,6 +59,8 @@ Events are associated with name: `[event name].[namespace]`. Example: click.du
 | defaultConfig | object/function | default configs of plugin |
 | init | function | initializes the plugin on $(document).ready() |
 | getClassInfo(element, prefix) | function | extracts the information from class attribute of element and returns array of String. i.e. group name, event name, etc. |
+| getJsonObject(object) | function | returns json object, argument object can be a json object or a function which returns json object |
+| merge(objArray) | function | objArray is an array of json objects or function which returns json object, this function returns merged json object. |
 | namespace | String | namespace used in application, default value is `du` |
 | requestNum | object | this is a map which stores groupName as key and request number as its value, used for rendering latest requests only.
 

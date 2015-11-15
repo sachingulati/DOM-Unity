@@ -40,6 +40,8 @@ Events are associated with name: `[event name].[namespace]`. Example: click.du
 | ------------- | ---- | -------- |
 | config | object/function  | User Defined configs, this overrides default configs |
 | data | object/function  | this is additional data which is also sent with every request, this is overrided by element values on page and importantData |
+| getConfig | function | returns all configurations including default config |
+| getConfig(groupName) | function | returns all configurations including default config of group |
 | getElements | function | returns all elements associated with any group on page |
 | getElements(groupName) | function | returns all elements associated with group specified |
 | getGroupNames | function | returns all group names on page |
