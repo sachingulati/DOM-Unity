@@ -22,10 +22,10 @@ DOM-Unity is a jQuery plugin. The basic idea revolves around unifying the DOM el
 1. **Namespace**: Default namespace of this application is `du`.
 2. **Prefix**: Information like group name, event, etc for an element can be provided in class attribute of that element. For this, the class name should be like: `[namespace]-[prefix]-[information]`. Example: "<input type='text' class='du-group-groupName' id='attributeName'/>" 
 Prefixes are stored in prefix json object. Prefixes are modifiable. But use it with caution.
-3. **Groups:** DOM elements playing any role in functioning are provided group(s). Events trigger by any of such elements trigger the event on group(s) associated with them and they collectively perform some action. 
-Default prefix for group is `group`. Example: du-group-groupName. 
-Example usecase: searching or filtering a list based on search parameters such as name, country, etc. Every group has group object which has properties associated with that group only
-4. **Event:** Events in application are jQuery events, events can also be custom jquery events. You can add any number of events. Default events are keyup and change, you can change default events of application/group using `events` property. You can also specify event for an element with prefix. Default prefix for event property is `event`. Example: du-event-click.
+3. **Groups:** DOM elements which play any role in functionality are provided group(s). Any event triggered by any such elements triggers the event on group(s) associated with them and they collectively perform some action. 
+Default prefix for group is `group`. Example: du-group-groupName.
+Usecase: Searching or filtering a list based on search parameters such as name, country, etc. Every group has a group object which has properties associated with that group only.
+4. **Event:** Here by events, we are referring to jQuery events. Default events are keyup and change, we can change default events of application/group using `events` property. We can add any number of events to our application. We can also specify event for an element with prefix. Default prefix for event property is `event`. Example: du-event-click. 
 Events added with prefix are in addition with default or group events. if you want to remove any default event from an element you can do it with `no-event` prefix. Example: du-no-event-change 
 After updating events you will have to re-initialize that element, group or application as per the scope of that event using `initEvents()`. 
 Events are associated with name: `[event name].[namespace]`. Example: click.du
