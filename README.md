@@ -3,7 +3,7 @@
 
 DOM-Unity is a jQuery plugin. The basic idea revolves around unifying the DOM elements on page.
 
-##### Feautures provided by this plugin:
+##### Features provided by this plugin:
   - Searching/Filtering lists
   - Pagination and Hybrid Pagination
   - Datasource: Ajax or/and Javascript Arrays
@@ -19,8 +19,8 @@ DOM-Unity is a jQuery plugin. The basic idea revolves around unifying the DOM el
 0.0.1
 
 ### Basic Terminologies: 
-1. **Namespace**: Default namespace of this application is `du`. This is modifiable.
-2. **Prefix**: Information like group name, event, etc for an element can be provided in class attribute of that element. For that class names goes like this: `[namespace]-[prefix]-[information]`. Example: <input type='text' class='du-group-groupName' id='attributeName'/>. 
+1. **Namespace**: Default namespace of this application is `du`.
+2. **Prefix**: Information like group name, event, etc for an element can be provided in class attribute of that element. For this, the class name should be like: `[namespace]-[prefix]-[information]`. Example: "<input type='text' class='du-group-groupName' id='attributeName'/>" 
 Prefixes are stored in prefix json object. Prefixes are modifiable. But use it with caution.
 3. **Groups:** DOM elements playing any role in functioning are provided group(s). Events trigger by any of such elements trigger the event on group(s) associated with them and they collectively perform some action. 
 Default prefix for group is `group`. Example: du-group-groupName. 
